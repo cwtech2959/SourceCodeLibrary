@@ -54,7 +54,7 @@ private:
 	std::shared_ptr<CanTalonSRX> m_rightMotor1;
 	std::shared_ptr<CanTalonSRX> m_rightMotor2;
 	std::shared_ptr<CanTalonSRX> m_rightMotor3;
-	MotorSafetyHelper * m_safetyHelper;
+	std::unique_ptr<MotorSafetyHelper> m_safetyHelper;
 
 	bool m_invertLeftSide;
 	bool m_invertRightSide;

@@ -167,7 +167,7 @@ void CanRobotDrive::InitRobotDrive(CanTalonSRX * leftMotor1,
 	m_invertLeftSide = invertleftSide;
 	m_invertRightSide = invertrightSide;
 
-	m_safetyHelper = new MotorSafetyHelper(this);
+	m_safetyHelper.reset(new MotorSafetyHelper(this));
 	m_safetyHelper->SetSafetyEnabled(true);
 
 	StopMotor();
