@@ -7,10 +7,10 @@
 
 #include <CanRobotDrive.h>
 
-CanRobotDrive::CanRobotDrive(CanTalonSRX * leftMotor1,
-		CanTalonSRX * leftMotor2,
-		CanTalonSRX * rightMotor1,
-		CanTalonSRX * rightMotor2,
+CanRobotDrive::CanRobotDrive(CANTalon * leftMotor1,
+		CANTalon * leftMotor2,
+		CANTalon * rightMotor1,
+		CANTalon * rightMotor2,
 		bool invertLeftSide, bool invertRightSide)
 {
 	InitRobotDrive(leftMotor1, leftMotor2,
@@ -21,12 +21,12 @@ CanRobotDrive::CanRobotDrive(CanTalonSRX * leftMotor1,
 			invertLeftSide,
 			invertRightSide);
 }
-CanRobotDrive::CanRobotDrive(CanTalonSRX * leftMotor1,
-			CanTalonSRX * leftMotor2,
-			CanTalonSRX * leftMotor3,
-			CanTalonSRX * rightMotor1,
-			CanTalonSRX * rightMotor2,
-			CanTalonSRX * rightMotor3,
+CanRobotDrive::CanRobotDrive(CANTalon * leftMotor1,
+		CANTalon * leftMotor2,
+		CANTalon * leftMotor3,
+		CANTalon * rightMotor1,
+		CANTalon * rightMotor2,
+		CANTalon * rightMotor3,
 			bool invertLeftSide, bool invertRightSide)
 {
 	InitRobotDrive(leftMotor1, leftMotor2,
@@ -40,7 +40,6 @@ CanRobotDrive::CanRobotDrive(CanTalonSRX * leftMotor1,
 
 CanRobotDrive::~CanRobotDrive()
 {
-	delete m_safetyHelper;
 }
 
 void CanRobotDrive::TankDrive(double leftSide, double rightSide)
@@ -149,12 +148,12 @@ double CanRobotDrive::Limit(double num)
 	return num;
 }
 
-void CanRobotDrive::InitRobotDrive(CanTalonSRX * leftMotor1,
-		CanTalonSRX * leftMotor2,
-		CanTalonSRX * leftMotor3,
-		CanTalonSRX * rightMotor1,
-		CanTalonSRX * rightMotor2,
-		CanTalonSRX * rightMotor3,
+void CanRobotDrive::InitRobotDrive(CANTalon * leftMotor1,
+		CANTalon * leftMotor2,
+		CANTalon * leftMotor3,
+		CANTalon * rightMotor1,
+		CANTalon * rightMotor2,
+		CANTalon * rightMotor3,
 		bool invertleftSide, bool invertrightSide)
 {
 	m_leftMotor1.reset(leftMotor1);

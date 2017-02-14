@@ -12,16 +12,17 @@
 #include <ErrorBase.h>
 #include <MotorSafety.h>
 #include <MotorSafetyHelper.h>
-#include <CanTalonSRX.h>
+#include <CANTalon.h>
 
-class CanRobotDrive: public frc::ErrorBase, public frc::MotorSafety {
+class CanRobotDrive: public frc::ErrorBase, public frc::MotorSafety
+{
 public:
-	CanRobotDrive(CanTalonSRX * leftMotor1, CanTalonSRX * leftMotor2,
-			CanTalonSRX * rightMotor1, CanTalonSRX * rightMotor2,
+	CanRobotDrive(CANTalon * leftMotor1, CANTalon * leftMotor2,
+			CANTalon * rightMotor1, CANTalon * rightMotor2,
 			bool invertLeftSide, bool invertRightSide);
-	CanRobotDrive(CanTalonSRX * leftMotor1, CanTalonSRX * leftMotor2,
-			CanTalonSRX * leftMotor3, CanTalonSRX * rightMotor1,
-			CanTalonSRX * rightMotor2, CanTalonSRX * rightMotor3,
+	CanRobotDrive(CANTalon * leftMotor1, CANTalon * leftMotor2,
+			CANTalon * leftMotor3, CANTalon * rightMotor1,
+			CANTalon * rightMotor2, CANTalon * rightMotor3,
 			bool invertLeftSide, bool invertRightSide);
 	virtual ~CanRobotDrive();
 
@@ -40,20 +41,20 @@ public:
 
 private:
 	int GetNumMotors();
-	void InitRobotDrive(CanTalonSRX * leftMotor1, CanTalonSRX * leftMotor2,
-			CanTalonSRX * leftMotor3, CanTalonSRX * rightMotor1,
-			CanTalonSRX * rightMotor2, CanTalonSRX * rightMotor3,
+	void InitRobotDrive(CANTalon * leftMotor1, CANTalon * leftMotor2,
+			CANTalon * leftMotor3, CANTalon * rightMotor1,
+			CANTalon * rightMotor2, CANTalon * rightMotor3,
 			bool invertLeftSide, bool invertRightSide);
 	double Limit(double num);
 
 	static const int kMaxNumberOfMotors = 6;
 
-	std::shared_ptr<CanTalonSRX> m_leftMotor1;
-	std::shared_ptr<CanTalonSRX> m_leftMotor2;
-	std::shared_ptr<CanTalonSRX> m_leftMotor3;
-	std::shared_ptr<CanTalonSRX> m_rightMotor1;
-	std::shared_ptr<CanTalonSRX> m_rightMotor2;
-	std::shared_ptr<CanTalonSRX> m_rightMotor3;
+	std::shared_ptr<CANTalon> m_leftMotor1;
+	std::shared_ptr<CANTalon> m_leftMotor2;
+	std::shared_ptr<CANTalon> m_leftMotor3;
+	std::shared_ptr<CANTalon> m_rightMotor1;
+	std::shared_ptr<CANTalon> m_rightMotor2;
+	std::shared_ptr<CANTalon> m_rightMotor3;
 	std::unique_ptr<MotorSafetyHelper> m_safetyHelper;
 
 	bool m_invertLeftSide;
